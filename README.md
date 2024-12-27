@@ -25,7 +25,7 @@ This is a Flask-based RESTful API designed for managing a collection of products
 2. Verify the Server is Running:
 - Open your web browser or use a tool like `curl` or `Postman` to navigate to the root endpoint.
 - If you see a welcome message like the following:
-  ```
+  ```json
   {
     "message": "Backend API assessment!"
   }
@@ -34,8 +34,7 @@ This is a Flask-based RESTful API designed for managing a collection of products
 
 ### V. Testing
 
-There are several options to test the API request, for example `curl`, `Postman`, or `SoapUI`. In this task, I am going to use `curl` for simplicity.  
-You can test the API using these cURL commands:
+There are several options to test the API, such as `curl`, `Postman`, or `SoapUI`. For simplicity, this guide uses `curl` commands. Ensure the server is running before proceeding (`http://127.0.0.1:5000`). You can test the API using these cURL commands:
 1. Create:
 ```
 curl -X POST http://127.0.0.1:5000/products -H "Content-Type: application/json" -d '{"name": "Laptop", "price": 1200, "quantity": 10}'
