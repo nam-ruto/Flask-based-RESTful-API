@@ -51,3 +51,7 @@ curl -X PUT http://127.0.0.1:5000/products/1 -H "Content-Type: application/json"
 ```
 curl -X DELETE http://127.0.0.1:5000/products/1
 ```
+
+### References
+- Flask documentation: [https://restfulapi.net/http-status-codes/](Flask)
+- HTTP status code: [https://restfulapi.net/http-status-codes/](http_status_code)
