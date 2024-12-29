@@ -27,10 +27,10 @@ def error_response(message, status_code):
     }), status_code
 
 
-# --- Home ---
+# --- Home: root URL ---
 @app.route('/')
 def home():
-    return jsonify({"message": "Backend API assessment!"}), 200
+    return jsonify({"message": "Backend API assessment!"}), SUCCESS_CODE
 
 
 # --- CREATE a new product (POST request) ---
@@ -96,7 +96,7 @@ def delete_product(product_id:int):
     with lock:
         product = products.pop(product_id, None)
         if not product:
-            return error_response(message=f"Product not found: {product_id}", status_code=NOT_FOUND_CODE)
+            return error_response(message=f"Product not found: {product_id}", status_code=NOT_FOUND_CODE) #404
         
     return jsonify({
         'message': f"Product with ID {product_id} is deleted successfully",
@@ -107,13 +107,13 @@ def delete_product(product_id:int):
 # --- ERROR HANDLER: Invalid JSON input ---
 @app.errorhandler(400)
 def handle_bad_request(e):
-    return error_response(message="Invalid JSON or request format", status_code=BAD_REQUEST_CODE) 
+    return error_response(message="Invalid JSON or request format", status_code=BAD_REQUEST_CODE) #400
 
 
 # --- ERROR HANDLER: General servel error ---
 @app.errorhandler(500)
 def handle_server_error(e):
-    return error_response(message="Internal server error", status_code=SERVER_ERROR_CODE)
+    return error_response(message="Internal server error", status_code=SERVER_ERROR_CODE) #500
 
 
 # --- Main funtion ---
